@@ -1,10 +1,15 @@
-import { Text, TextInput, View } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity } from 'react-native';
 
 import {
   styles
 } from './styles';
 
 export function Home() {
+
+  function handleAddParticipant() {
+    console.log('Adicionou participante')
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>
@@ -15,11 +20,19 @@ export function Home() {
         Sexta, 4 de Novembro de 2022
       </Text>
 
-    <TextInput 
-      style={styles.input}
-      placeholder='Nome do participante'
-      placeholderTextColor={'#6B6B6B'}
-    />
+      <View style={styles.form}>
+        <TextInput
+          style={styles.input}
+          placeholder='Nome do participante'
+          placeholderTextColor={'#6B6B6B'}
+        />
+
+        <TouchableOpacity style={styles.button} onPress={handleAddParticipant}>
+          <Text style={styles.buttonText}> + </Text>
+        </TouchableOpacity>
+      </View>
+
+
     </View>
   );
 }
